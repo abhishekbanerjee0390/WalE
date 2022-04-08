@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  WallE-Swift
+//  WalE-Swift
 //
 //  Created by Abhishek Banerjee on 05/04/22.
 //
@@ -16,7 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+//        guard let _ = (scene as? UIWindowScene) else { return }
+        setAppRoot(withScene: scene)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -50,3 +51,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+
+
+private extension SceneDelegate {
+    
+    func setAppRoot(withScene scene: UIScene) {
+        guard let windowScene = (scene as? UIWindowScene) else {
+            return
+        }
+        if window == nil {
+            window = UIWindow(windowScene: windowScene)
+        }
+        window?.windowScene = windowScene
+        let viewController = WALELandingViewController()
+        window?.rootViewController = viewController
+        window?.makeKeyAndVisible()
+    }
+}

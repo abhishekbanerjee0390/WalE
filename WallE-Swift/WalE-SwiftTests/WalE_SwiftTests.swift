@@ -1,6 +1,6 @@
 //
-//  WallE_SwiftTests.swift
-//  WallE-SwiftTests
+//  WalE_SwiftTests.swift
+//  WalE-SwiftTests
 //
 //  Created by Abhishek Banerjee on 05/04/22.
 //

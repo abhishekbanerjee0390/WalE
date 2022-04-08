@@ -1,13 +1,13 @@
 //
-//  WallE_SwiftUITests.swift
-//  WallE-SwiftUITests
+//  WalE_SwiftUITests.swift
+//  WalE-SwiftUITests
 //
 //  Created by Abhishek Banerjee on 05/04/22.
 //
 
 import XCTest
 
-class WallE_SwiftUITests: XCTestCase {
+class WalE_SwiftUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

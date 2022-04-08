@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/abhishekbanerjee/Documents/github/WalE/WallE-Swift/WalE-Swift.xcodeproj">
    </FileRef>
 </Workspace>

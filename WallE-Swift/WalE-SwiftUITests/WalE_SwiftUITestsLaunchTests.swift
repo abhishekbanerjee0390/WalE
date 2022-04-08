@@ -1,13 +1,13 @@
 //
-//  WallE_SwiftUITestsLaunchTests.swift
-//  WallE-SwiftUITests
+//  WalE_SwiftUITestsLaunchTests.swift
+//  WalE-SwiftUITests
 //
 //  Created by Abhishek Banerjee on 05/04/22.
 //
 
 import XCTest
 
-class WallE_SwiftUITestsLaunchTests: XCTestCase {
+class WalE_SwiftUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
