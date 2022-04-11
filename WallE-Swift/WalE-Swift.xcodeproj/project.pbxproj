@@ -30,7 +30,11 @@
 		533230E027FC896A009F0A91 /* WalE_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533230DF27FC896A009F0A91 /* WalE_SwiftTests.swift */; };
 		533230FC27FC9D52009F0A91 /* WALENetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533230FB27FC9D52009F0A91 /* WALENetworkManager.swift */; };
 		533230FF27FC9F61009F0A91 /* WALEConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533230FE27FC9F61009F0A91 /* WALEConstant.swift */; };
-		534966DE28007D020054B0FE /* WALECacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534966DD28007D020054B0FE /* WALECacheManager.swift */; };
+		534966E0280089DF0054B0FE /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534966DF280089DF0054B0FE /* String+Helper.swift */; };
+		538121D62803F0750046483C /* WALELandingImageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538121D42803F0750046483C /* WALELandingImageTableCell.swift */; };
+		538121D72803F0750046483C /* WALELandingImageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538121D52803F0750046483C /* WALELandingImageTableCell.xib */; };
+		538121D92803F5AC0046483C /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538121D82803F5AC0046483C /* NSObject+Helper.swift */; };
+		53ACA7E528032EDA00A44115 /* WALEStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ACA7E428032EDA00A44115 /* WALEStorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +82,11 @@
 		533230E527FC896A009F0A91 /* WalE-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WalE-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		533230FB27FC9D52009F0A91 /* WALENetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALENetworkManager.swift; sourceTree = "<group>"; };
 		533230FE27FC9F61009F0A91 /* WALEConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALEConstant.swift; sourceTree = "<group>"; };
-		534966DD28007D020054B0FE /* WALECacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALECacheManager.swift; sourceTree = "<group>"; };
+		534966DF280089DF0054B0FE /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
+		538121D42803F0750046483C /* WALELandingImageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALELandingImageTableCell.swift; sourceTree = "<group>"; };
+		538121D52803F0750046483C /* WALELandingImageTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WALELandingImageTableCell.xib; sourceTree = "<group>"; };
+		538121D82803F5AC0046483C /* NSObject+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Helper.swift"; sourceTree = "<group>"; };
+		53ACA7E428032EDA00A44115 /* WALEStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALEStorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,13 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5326BF6727FD81E9004D2190 /* Cell */ = {
+		5326BF6727FD81E9004D2190 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				5326BF6827FD8209004D2190 /* WALELandingTableCell.swift */,
 				5326BF6927FD8209004D2190 /* WALELandingTableCell.xib */,
+				538121D42803F0750046483C /* WALELandingImageTableCell.swift */,
+				538121D52803F0750046483C /* WALELandingImageTableCell.xib */,
 			);
-			path = Cell;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		5326BF6C27FDB386004D2190 /* Extensions */ = {
@@ -121,6 +131,8 @@
 				5326BF6D27FDB396004D2190 /* URLResponse+Helper.swift */,
 				5311B9DF27FDE6A600C44C73 /* URLSession+WALEURLSessionProtocol.swift */,
 				5311B9E127FDE6C400C44C73 /* Date+Helper.swift */,
+				534966DF280089DF0054B0FE /* String+Helper.swift */,
+				538121D82803F5AC0046483C /* NSObject+Helper.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -181,7 +193,7 @@
 		533230C727FC8965009F0A91 /* WalE-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				533230FD27FC9F45009F0A91 /* Common */,
+				533230FD27FC9F45009F0A91 /* Utility */,
 				533230FA27FC9D19009F0A91 /* Networking */,
 				533230F827FC9BE3009F0A91 /* LandingScene */,
 				533230C827FC8965009F0A91 /* AppDelegate.swift */,
@@ -227,7 +239,7 @@
 		533230F927FC9BF3009F0A91 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5326BF6727FD81E9004D2190 /* Cell */,
+				5326BF6727FD81E9004D2190 /* Cells */,
 				5326BF6527FD782D004D2190 /* WALELandingViewController.swift */,
 			);
 			path = View;
@@ -242,14 +254,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		533230FD27FC9F45009F0A91 /* Common */ = {
+		533230FD27FC9F45009F0A91 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				5326BF6C27FDB386004D2190 /* Extensions */,
 				533230FE27FC9F61009F0A91 /* WALEConstant.swift */,
-				534966DD28007D020054B0FE /* WALECacheManager.swift */,
+				53ACA7E428032EDA00A44115 /* WALEStorageManager.swift */,
 			);
-			path = Common;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,6 +371,7 @@
 			files = (
 				533230D527FC896A009F0A91 /* LaunchScreen.storyboard in Resources */,
 				533230D227FC896A009F0A91 /* Assets.xcassets in Resources */,
+				538121D72803F0750046483C /* WALELandingImageTableCell.xib in Resources */,
 				533230D027FC8965009F0A91 /* Main.storyboard in Resources */,
 				5326BF6B27FD8209004D2190 /* WALELandingTableCell.xib in Resources */,
 			);
@@ -392,15 +405,18 @@
 				5326BF6A27FD8209004D2190 /* WALELandingTableCell.swift in Sources */,
 				5326BF7327FDC87A004D2190 /* WALELandingPresenter.swift in Sources */,
 				5326BF6227FD6AC0004D2190 /* WALENetworkMonitor.swift in Sources */,
+				538121D92803F5AC0046483C /* NSObject+Helper.swift in Sources */,
 				5311B9E527FDF35000C44C73 /* WALELandingViewModel.swift in Sources */,
 				533230C927FC8965009F0A91 /* AppDelegate.swift in Sources */,
 				5311B9E227FDE6C400C44C73 /* Date+Helper.swift in Sources */,
 				533230FF27FC9F61009F0A91 /* WALEConstant.swift in Sources */,
+				53ACA7E528032EDA00A44115 /* WALEStorageManager.swift in Sources */,
 				533230CB27FC8965009F0A91 /* SceneDelegate.swift in Sources */,
-				534966DE28007D020054B0FE /* WALECacheManager.swift in Sources */,
 				5311B9E027FDE6A600C44C73 /* URLSession+WALEURLSessionProtocol.swift in Sources */,
+				538121D62803F0750046483C /* WALELandingImageTableCell.swift in Sources */,
 				5326BF6E27FDB396004D2190 /* URLResponse+Helper.swift in Sources */,
 				5326BF7627FDD6B7004D2190 /* WALELandingAPIWorker.swift in Sources */,
+				534966E0280089DF0054B0FE /* String+Helper.swift in Sources */,
 				5326BF7A27FDD9C3004D2190 /* APOD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

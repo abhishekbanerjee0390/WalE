@@ -9,71 +9,108 @@ import UIKit
 
 protocol WALELandingDisplayable: AnyObject {
     func displayAPOD(withViewModel: WALELandingViewModel)
+    func displayImage(withImageData: Data)
+    func displayLoader()
+    func hideLoader()
+    func displayAlert(withString: String)
 }
 
 final class WALELandingViewController: UITableViewController {
     
     private var interactor: WALELandingInteractable!
     private var viewModel: WALELandingViewModel?
+    private lazy var activityLoader: UIActivityIndicatorView = {
+        
+        let spinner = UIActivityIndicatorView(style: .large)
+        view.addSubview(spinner)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        spinner.hidesWhenStopped = true
+        return spinner
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        registerCells()
         tableViewSetup()
         assert(interactor != nil, "interactor should not be nil")
         interactor.processViewDidLoad()
-        registerCell()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        let sections = (viewModel != nil) ? 1 : 0
-        print("sections", sections)
-        return sections
-       // return (viewModel != nil) ? 1 : 0
+        return (viewModel != nil) ? 1 : 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let rows = (viewModel != nil) ? 1 : 0
-        print("rows", rows)
-        return rows
-
-        //return (viewModel != nil) ? 1 : 0
+        
+        if let viewModel = viewModel {
+            return (viewModel.apod.imageData != nil) ? 2 : 1
+        }
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WALELandingTableCell", for: indexPath) as! WALELandingTableCell
-        cell.updateUI(withAPOD: viewModel!.apod)
-        return cell
+        
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WALELandingTableCell", for: indexPath) as! WALELandingTableCell
+            cell.updateUI(withAPOD: viewModel!.apod)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "WALELandingImageTableCell", for: indexPath) as! WALELandingImageTableCell
+            cell.setImage(withImageData: viewModel!.apod.imageData!)
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        return UIView()
-//    }
 }
 
 //MARK: - WALELandingDisplayable -
 extension WALELandingViewController: WALELandingDisplayable {
     func displayAPOD(withViewModel model: WALELandingViewModel) {
-        self.viewModel = model
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        viewModel = model
+        reloadTable()
+    }
+    
+    func displayImage(withImageData data: Data) {
+        viewModel?.apod.imageData = data
+        reloadTable()
+    }
+    
+    func displayLoader() {
+        runOnMainThread {
+            self.activityLoader.startAnimating()
+        }
+    }
+    
+    func hideLoader() {
+        runOnMainThread {
+            self.activityLoader.stopAnimating()
+        }
+    }
+    
+    func displayAlert(withString string: String) {
+        runOnMainThread {
+            let alertController = UIAlertController(title: "Alert", message: string, preferredStyle: UIAlertController.Style.alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default))
+            self.present(alertController, animated: true, completion: nil)
         }
     }
 }
 
 //MARK: - Private -
 private extension WALELandingViewController {
-    //WALELandingTableCell.swift
-    func registerCell() {
+    func registerCells() {
         let nib = UINib(nibName: "WALELandingTableCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "WALELandingTableCell")
+        let nibImage = UINib(nibName: "WALELandingImageTableCell", bundle: nil)
+        tableView.register(nibImage, forCellReuseIdentifier: "WALELandingImageTableCell")
     }
     
     func tableViewSetup() {
@@ -91,4 +128,12 @@ private extension WALELandingViewController {
         let interactor = WALELandingInteractor(withPresenter: presenter)
         self.interactor = interactor
     }
+    
+    func reloadTable() {
+        
+        runOnMainThread {
+            self.tableView.reloadData()
+        }
+    }
 }
+

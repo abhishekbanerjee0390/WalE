@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import UIKit
  
 protocol WALELandingAPIWorkerProtocol {
     
     func requestToGetPictureOfTheDay(forDate dateString: String, completion: @escaping (APOD?) -> Void)
+    func requestToDownloadImage(fromURL url: URL, completion: @escaping (Data?) -> Void)
 }
 
 struct WALELandingAPIWorker: WALELandingAPIWorkerProtocol {
@@ -34,6 +36,18 @@ struct WALELandingAPIWorker: WALELandingAPIWorkerProtocol {
                 completion(apod)
             case .failure(let error):
                 debugPrint("failure", error)
+                completion(nil)
+            }
+        }
+    }
+    
+    func requestToDownloadImage(fromURL url: URL, completion: @escaping (Data?) -> Void) {
+        networkManager.download(from: url) { (result: Result<Data, WALEError>) in
+            switch result {
+            case .success(let data):
+                completion(data)
+            case .failure(let error):
+                debugPrint("error downloading image from url", url, " with error", error.rawValue)
                 completion(nil)
             }
         }

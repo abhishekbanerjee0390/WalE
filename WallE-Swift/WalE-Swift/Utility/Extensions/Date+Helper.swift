@@ -13,4 +13,8 @@ extension Date {
         formatter.dateFormat = format
         return formatter.string(from: self)
     }
+    
+    func daysAgo(_ day: Int, dateFormat format: String = WALEDateConstant.dateFormat) -> Date? {
+        return Calendar.current.date(byAdding: .day, value: -day, to: self)
+    }
 }

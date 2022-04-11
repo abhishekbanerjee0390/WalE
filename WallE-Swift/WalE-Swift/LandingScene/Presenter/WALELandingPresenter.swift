@@ -11,8 +11,11 @@ import UIKit
 
 protocol WALELandingPresentable {
     func presentAPOD(withAPOD model: APOD)
+    func presentImage(withImageData imageData: Data)
+    func presentSpinner()
+    func hideSpinner()
+    func presentAlert(withMessage message: String)
 }
-
 
 final class WALELandingPresenter {
     
@@ -22,10 +25,26 @@ final class WALELandingPresenter {
     }
 }
 
+//MARk: - WALELandingPresentable -
 extension WALELandingPresenter: WALELandingPresentable {
+    func presentAlert(withMessage message: String) {
+        viewController?.displayAlert(withString: message)
+    }
     
     func presentAPOD(withAPOD model: APOD) {
         let viewModel = WALELandingViewModel(apod: model)
         viewController?.displayAPOD(withViewModel: viewModel)
+    }
+    
+    func presentImage(withImageData imageData: Data) {
+        viewController?.displayImage(withImageData: imageData)
+    }
+    
+    func presentSpinner() {
+        viewController?.displayLoader()
+    }
+    
+    func hideSpinner() {
+        viewController?.hideLoader()
     }
 }

@@ -10,15 +10,8 @@ import Network
 
 class ViewController: UIViewController {
 
-    let networkMonitor: WALENetworkMonitorProtocol = WALENetworkMonitor()
     override func viewDidLoad() {
         super.viewDidLoad()
-//        networkMonitor = WALENetworkMonitor()
-        // Do any additional setup after loading the view.
-        
-        networkMonitor.startMonitoringNetwork { (isConnected: Bool) in
-            
-        }
     }
 
     //https://api.nasa.gov/planetary/apod?api_key=K70cd0Wlb9zbPA2jkolcYzNqEblg6H3gYGEY7zHE&date=2022-04-05
@@ -58,3 +51,30 @@ class ViewController: UIViewController {
  */
 
 //https://www.raywenderlich.com/8549-self-sizing-table-view-cells
+/*
+ let url = URL(string: "https://apod.nasa.gov/apod/image/2204/Calif2Pleiades_Krcmarek_1080.jpg")!
+ networkManager.download(from: url) { (result: Result<Data, WALEError>) in
+     switch result {
+     case .success(let data):
+         print("success downloading image", data)
+         DispatchQueue.main.async {
+             let img = UIImage(data: data)
+             print("img", img)
+         }
+     case .failure(let error):
+         print("failure downloading image", error)
+     }
+ }
+ 
+
+ */
+
+
+/*
+ Not covering
+ - Not deleting older data for days less than 2
+ - APOD should not contain a UIImage object
+ - Interactor should not import UIKit and should not convert data to UIIMage
+ 
+ 
+ */

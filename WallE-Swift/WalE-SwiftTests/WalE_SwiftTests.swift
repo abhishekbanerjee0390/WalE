@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import WallE_Swift
+@testable import WalE_Swift
 
 class WallE_SwiftTests: XCTestCase {
 
