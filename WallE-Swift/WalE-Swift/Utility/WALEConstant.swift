@@ -17,3 +17,8 @@ enum WALEDateConstant {
     static let dateFormat = "YYYY-MM-dd"
 }
 
+
+enum WALEStringConstant {
+    static let alertYesterdayData = "We are not connected to the internet, showing you the last image we have."
+    static let alertNoData = "We are not connected to the internet, please try again when internet is back"
+}

@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct APOD:  Codable {
+struct APOD: Codable {
     
     let dateString: String
     let explanation: String

@@ -23,7 +23,6 @@
 		5326BF7E27FDDE24004D2190 /* WalE_SwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5326BF7C27FDDE24004D2190 /* WalE_SwiftUITestsLaunchTests.swift */; };
 		533230C927FC8965009F0A91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533230C827FC8965009F0A91 /* AppDelegate.swift */; };
 		533230CB27FC8965009F0A91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533230CA27FC8965009F0A91 /* SceneDelegate.swift */; };
-		533230CD27FC8965009F0A91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533230CC27FC8965009F0A91 /* ViewController.swift */; };
 		533230D027FC8965009F0A91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 533230CE27FC8965009F0A91 /* Main.storyboard */; };
 		533230D227FC896A009F0A91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 533230D127FC896A009F0A91 /* Assets.xcassets */; };
 		533230D527FC896A009F0A91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 533230D327FC896A009F0A91 /* LaunchScreen.storyboard */; };
@@ -31,9 +30,15 @@
 		533230FC27FC9D52009F0A91 /* WALENetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533230FB27FC9D52009F0A91 /* WALENetworkManager.swift */; };
 		533230FF27FC9F61009F0A91 /* WALEConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533230FE27FC9F61009F0A91 /* WALEConstant.swift */; };
 		534966E0280089DF0054B0FE /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534966DF280089DF0054B0FE /* String+Helper.swift */; };
+		534F7B4B2805CE7C0086A9BA /* WALESwiftLandingControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5372E6FF280455A200E55EB3 /* WALESwiftLandingControllerTest.swift */; };
+		5372E7022804740100E55EB3 /* WALELandingInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5372E7012804740100E55EB3 /* WALELandingInteractorTest.swift */; };
+		5372E7042804781300E55EB3 /* WALELandingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5372E7032804781300E55EB3 /* WALELandingConfigurator.swift */; };
+		537891AF28055B08003518FE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 537891AE28055B08003518FE /* placeholder.png */; };
 		538121D62803F0750046483C /* WALELandingImageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538121D42803F0750046483C /* WALELandingImageTableCell.swift */; };
 		538121D72803F0750046483C /* WALELandingImageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538121D52803F0750046483C /* WALELandingImageTableCell.xib */; };
 		538121D92803F5AC0046483C /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538121D82803F5AC0046483C /* NSObject+Helper.swift */; };
+		539B999E2805BB7E00B63F6D /* WALELandingPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539B999D2805BB7E00B63F6D /* WALELandingPresenterTest.swift */; };
+		539B99A02805C32600B63F6D /* WALEMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539B999F2805C32600B63F6D /* WALEMockData.swift */; };
 		53ACA7E528032EDA00A44115 /* WALEStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53ACA7E428032EDA00A44115 /* WALEStorageManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,7 +77,6 @@
 		533230C527FC8965009F0A91 /* WalE-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WalE-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		533230C827FC8965009F0A91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		533230CA27FC8965009F0A91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		533230CC27FC8965009F0A91 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		533230CF27FC8965009F0A91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		533230D127FC896A009F0A91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		533230D427FC896A009F0A91 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -83,9 +87,15 @@
 		533230FB27FC9D52009F0A91 /* WALENetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALENetworkManager.swift; sourceTree = "<group>"; };
 		533230FE27FC9F61009F0A91 /* WALEConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALEConstant.swift; sourceTree = "<group>"; };
 		534966DF280089DF0054B0FE /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
+		5372E6FF280455A200E55EB3 /* WALESwiftLandingControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALESwiftLandingControllerTest.swift; sourceTree = "<group>"; };
+		5372E7012804740100E55EB3 /* WALELandingInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALELandingInteractorTest.swift; sourceTree = "<group>"; };
+		5372E7032804781300E55EB3 /* WALELandingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALELandingConfigurator.swift; sourceTree = "<group>"; };
+		537891AE28055B08003518FE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		538121D42803F0750046483C /* WALELandingImageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALELandingImageTableCell.swift; sourceTree = "<group>"; };
 		538121D52803F0750046483C /* WALELandingImageTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WALELandingImageTableCell.xib; sourceTree = "<group>"; };
 		538121D82803F5AC0046483C /* NSObject+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Helper.swift"; sourceTree = "<group>"; };
+		539B999D2805BB7E00B63F6D /* WALELandingPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALELandingPresenterTest.swift; sourceTree = "<group>"; };
+		539B999F2805C32600B63F6D /* WALEMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALEMockData.swift; sourceTree = "<group>"; };
 		53ACA7E428032EDA00A44115 /* WALEStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALEStorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,7 +208,6 @@
 				533230F827FC9BE3009F0A91 /* LandingScene */,
 				533230C827FC8965009F0A91 /* AppDelegate.swift */,
 				533230CA27FC8965009F0A91 /* SceneDelegate.swift */,
-				533230CC27FC8965009F0A91 /* ViewController.swift */,
 				533230CE27FC8965009F0A91 /* Main.storyboard */,
 				533230D127FC896A009F0A91 /* Assets.xcassets */,
 				533230D327FC896A009F0A91 /* LaunchScreen.storyboard */,
@@ -211,6 +220,11 @@
 			isa = PBXGroup;
 			children = (
 				533230DF27FC896A009F0A91 /* WalE_SwiftTests.swift */,
+				5372E6FF280455A200E55EB3 /* WALESwiftLandingControllerTest.swift */,
+				5372E7012804740100E55EB3 /* WALELandingInteractorTest.swift */,
+				539B999D2805BB7E00B63F6D /* WALELandingPresenterTest.swift */,
+				539B999F2805C32600B63F6D /* WALEMockData.swift */,
+				537891AE28055B08003518FE /* placeholder.png */,
 			);
 			path = "WalE-SwiftTests";
 			sourceTree = "<group>";
@@ -232,6 +246,7 @@
 				5326BF6F27FDC644004D2190 /* Interactor */,
 				533230F927FC9BF3009F0A91 /* View */,
 				5326BF7727FDD6C4004D2190 /* Worker */,
+				5372E7032804781300E55EB3 /* WALELandingConfigurator.swift */,
 			);
 			path = LandingScene;
 			sourceTree = "<group>";
@@ -381,6 +396,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				537891AF28055B08003518FE /* placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +414,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				533230CD27FC8965009F0A91 /* ViewController.swift in Sources */,
 				533230FC27FC9D52009F0A91 /* WALENetworkManager.swift in Sources */,
 				5326BF6627FD782D004D2190 /* WALELandingViewController.swift in Sources */,
 				5326BF7127FDC65F004D2190 /* WALELandingInteractor.swift in Sources */,
@@ -408,6 +423,7 @@
 				538121D92803F5AC0046483C /* NSObject+Helper.swift in Sources */,
 				5311B9E527FDF35000C44C73 /* WALELandingViewModel.swift in Sources */,
 				533230C927FC8965009F0A91 /* AppDelegate.swift in Sources */,
+				5372E7042804781300E55EB3 /* WALELandingConfigurator.swift in Sources */,
 				5311B9E227FDE6C400C44C73 /* Date+Helper.swift in Sources */,
 				533230FF27FC9F61009F0A91 /* WALEConstant.swift in Sources */,
 				53ACA7E528032EDA00A44115 /* WALEStorageManager.swift in Sources */,
@@ -425,6 +441,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				534F7B4B2805CE7C0086A9BA /* WALESwiftLandingControllerTest.swift in Sources */,
+				539B999E2805BB7E00B63F6D /* WALELandingPresenterTest.swift in Sources */,
+				5372E7022804740100E55EB3 /* WALELandingInteractorTest.swift in Sources */,
+				539B99A02805C32600B63F6D /* WALEMockData.swift in Sources */,
 				533230E027FC896A009F0A91 /* WalE_SwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

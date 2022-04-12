@@ -32,10 +32,10 @@ struct WALENetworkMonitor: WALENetworkMonitorProtocol {
     
     func startMonitoringNetwork(_ statusChanged: @escaping WALENetworkStatusChanged) {
         
-        print("startMonitoringNetwork")
+        debugPrint("startMonitoringNetwork")
 
         monitor.pathUpdateHandler = { path in
-            print("pathUpdateHandler", path.status)
+            debugPrint("pathUpdateHandler", path.status)
             statusChanged(path.status == .satisfied)
         }
         

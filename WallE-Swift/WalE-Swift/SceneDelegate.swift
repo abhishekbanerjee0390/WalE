@@ -63,7 +63,7 @@ private extension SceneDelegate {
             window = UIWindow(windowScene: windowScene)
         }
         window?.windowScene = windowScene
-        let viewController = WALELandingViewController()
+        let viewController = WALELandingViewController(withConfigurator: WALELandingConfigurator())
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
     }

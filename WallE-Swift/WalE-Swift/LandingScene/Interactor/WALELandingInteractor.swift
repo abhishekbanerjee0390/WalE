@@ -12,17 +12,20 @@ protocol WALELandingInteractable {
 }
 
 final class WALELandingInteractor {
+    
+    private let todaysDate: Date
     private let presenter: WALELandingPresentable
     private let networkMonitor: WALENetworkMonitorProtocol
     
     private let apiWorker: WALELandingAPIWorkerProtocol
-    private let storageManager: WallEStorageManager
+    private let storageManager: WallEStorageManagerProtocol
     
-    init(withPresenter presenter: WALELandingPresentable) {
+    init(withPresenter presenter: WALELandingPresentable, apiWorker: WALELandingAPIWorkerProtocol, storageManager: WallEStorageManagerProtocol, networkMonitor: WALENetworkMonitorProtocol) {
         self.presenter = presenter
-        self.apiWorker = WALELandingAPIWorker()
-        self.storageManager = WallEStorageManager.shared
-        self.networkMonitor = WALENetworkMonitor()
+        self.apiWorker = apiWorker
+        self.storageManager = storageManager
+        self.networkMonitor = networkMonitor
+        self.todaysDate = Date()
     }
 }
 
@@ -33,7 +36,7 @@ extension WALELandingInteractor: WALELandingInteractable {
     }
 }
 
-//MARk: - Privtae -
+//MARk: - Private -
 private extension WALELandingInteractor {
     
     func validateDate(_ date: Date, _ closure: (String) -> ()) {
@@ -47,11 +50,10 @@ private extension WALELandingInteractor {
     func loadAPOD() {
         self.networkMonitor.startMonitoringNetwork { [weak self] isConnected in
             guard let safeSelf = self else { return }
-            let todaysDate = Date()
             if isConnected {
-                safeSelf.handleFlowWithInternet(forDate: todaysDate)
+                safeSelf.handleFlowWithInternet(forDate: safeSelf.todaysDate)
             } else {
-                safeSelf.handleFlowWithoutInternet(forDate: todaysDate)
+                safeSelf.handleFlowWithoutInternet(forDate: safeSelf.todaysDate)
             }
         }
     }
@@ -62,16 +64,13 @@ private extension WALELandingInteractor {
         validateDate(date) { dateString in
             apod = try? storageManager.getObject(forKey: dateString)
         }
-        if let apod = apod, apod.imageData == nil {
-            downloadImageFromServer(withAPOD: apod)
-        }
-        debugPrint("getting value from cache", apod)
+        debugPrint("getting value from cache", (apod ?? ""))
         return apod
     }
     
     func setAPODInCache(_ apod: APOD) {
-        print("settings value in cache", apod)
-        validateDate(Date()) { date in
+        debugPrint("settings value in cache", apod)
+        validateDate(todaysDate) { date in
             try? storageManager.setObject(value: apod, forKey: date)
         }
     }
@@ -85,7 +84,7 @@ private extension WALELandingInteractor {
         apiWorker.requestToDownloadImage(fromURL: url) { [weak self] data in
             if let safeSelf = self, let imageData = data {
                 
-                safeSelf.validateDate(Date()) { date in
+                safeSelf.validateDate(safeSelf.todaysDate) { date in
                     var mutableAPOD = apod
                     mutableAPOD.imageData = imageData
                     safeSelf.setAPODInCache(mutableAPOD)
@@ -97,17 +96,23 @@ private extension WALELandingInteractor {
     }
     
     func handleFlowWithInternet(forDate date: Date) {
-        validateDate(date) { date in
-            presenter.presentSpinner()
-            apiWorker.requestToGetPictureOfTheDay(forDate: date) { [weak self] (apod: APOD?) in
-                if let safeSelf = self, let apod = apod {
-                    debugPrint("showing values from sever")
-                    safeSelf.downloadImageFromServer(withAPOD:  apod)
+        validateDate(date) { dateString in
+            // Showing from local if we have data for current day, since its picture of the day it wont be changing for the whole day.
+            if let todaysAPOd = checkAPODExistsInCache(forDate: date) {
+                debugPrint("showing values from local")
+                presenter.presentAPOD(withAPOD: todaysAPOd)
+            } else {
+                presenter.presentSpinner()
+                apiWorker.requestToGetPictureOfTheDay(forDate: dateString) { [weak self] (apod: APOD?) in
+                    if let safeSelf = self, let apod = apod {
+                        debugPrint("showing values from sever")
+                        safeSelf.downloadImageFromServer(withAPOD: apod)
+                    }
                 }
             }
         }
     }
-    
+
     func handleFlowWithoutInternet(forDate date: Date) {
         //if today APOD exists
         if let todaysAPOd = checkAPODExistsInCache(forDate: date) {
@@ -116,11 +121,11 @@ private extension WALELandingInteractor {
             //if yesterday's date exists
             if let yesterdaysDate = date.daysAgo(1), let yesterdaysAPOD = checkAPODExistsInCache(forDate: yesterdaysDate) {
                 presenter.presentAPOD(withAPOD: yesterdaysAPOD)
-                presenter.presentAlert(withMessage: "We are not connected to the internet, showing you the last image we have.")
+                presenter.presentAlert(withMessage: WALEStringConstant.alertYesterdayData)
             } else {
                 //this requirement was not in the  acceptance criteria adding it on my own
                 //when user has no data of neither today or yesterday, showing just an internet alert
-                presenter.presentAlert(withMessage: "We are not connected to the internet, please try again when internet is back")
+                presenter.presentAlert(withMessage: WALEStringConstant.alertNoData)
             }
         }
     }

@@ -9,7 +9,6 @@ import UIKit
 
 protocol WALELandingDisplayable: AnyObject {
     func displayAPOD(withViewModel: WALELandingViewModel)
-    func displayImage(withImageData: Data)
     func displayLoader()
     func hideLoader()
     func displayAlert(withString: String)
@@ -30,12 +29,19 @@ final class WALELandingViewController: UITableViewController {
         return spinner
     }()
     
+    init(withConfigurator configurator: WALELandingConfiguratorProtocol) {
+        super.init(nibName: nil, bundle: nil)
+        self.interactor = configurator.setup(withController: self)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialSetup()
         registerCells()
         tableViewSetup()
-        assert(interactor != nil, "interactor should not be nil")
         interactor.processViewDidLoad()
     }
 
@@ -73,13 +79,9 @@ final class WALELandingViewController: UITableViewController {
 
 //MARK: - WALELandingDisplayable -
 extension WALELandingViewController: WALELandingDisplayable {
+  
     func displayAPOD(withViewModel model: WALELandingViewModel) {
         viewModel = model
-        reloadTable()
-    }
-    
-    func displayImage(withImageData data: Data) {
-        viewModel?.apod.imageData = data
         reloadTable()
     }
     
@@ -120,13 +122,6 @@ private extension WALELandingViewController {
         tableView.alwaysBounceVertical = false
         tableView.alwaysBounceHorizontal = false
         tableView.bounces = false
-    }
-    
-    func initialSetup() {
-        
-        let presenter = WALELandingPresenter(withViewController: self)
-        let interactor = WALELandingInteractor(withPresenter: presenter)
-        self.interactor = interactor
     }
     
     func reloadTable() {

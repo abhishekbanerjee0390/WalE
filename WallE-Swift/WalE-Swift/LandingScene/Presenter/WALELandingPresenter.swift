@@ -6,12 +6,9 @@
 //
 
 import Foundation
-import UIKit
-
 
 protocol WALELandingPresentable {
     func presentAPOD(withAPOD model: APOD)
-    func presentImage(withImageData imageData: Data)
     func presentSpinner()
     func hideSpinner()
     func presentAlert(withMessage message: String)
@@ -34,10 +31,6 @@ extension WALELandingPresenter: WALELandingPresentable {
     func presentAPOD(withAPOD model: APOD) {
         let viewModel = WALELandingViewModel(apod: model)
         viewController?.displayAPOD(withViewModel: viewModel)
-    }
-    
-    func presentImage(withImageData imageData: Data) {
-        viewController?.displayImage(withImageData: imageData)
     }
     
     func presentSpinner() {

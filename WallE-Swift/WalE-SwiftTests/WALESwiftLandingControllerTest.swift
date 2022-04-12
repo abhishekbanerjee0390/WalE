@@ -6,30 +6,88 @@
 //
 
 import XCTest
+@testable import WalE_Swift
 
 class WALESwiftLandingControllerTest: XCTestCase {
+    
+    var configurator: WALEConfiguratorMock!
+    
+    class WALEConfiguratorMock: WALELandingConfiguratorProtocol {
+        
+        var interactor: WALEInteractorMock!
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        func setup(withController controller: WALELandingViewController) -> WALELandingInteractable {
+            
+            interactor = WALEInteractorMock()
+            return interactor
+        }
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    class WALEInteractorMock: WALELandingInteractable {
+       
+        var isProcessViewDidLoadCalled: Bool = false
+        
+        func processViewDidLoad() {
+            isProcessViewDidLoadCalled = true
         }
     }
 
+    private var sut: WALELandingViewController!
+    private var window: UIWindow!
+
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        window = UIWindow()
+        setupController()
+    }
+
+    override func tearDownWithError() throws {
+        window = nil
+        sut = nil
+        configurator = nil
+        try super.tearDownWithError()
+    }
+    
+    
+    func test_processViewDidLoad() {
+        window.addSubview(sut.view)
+        sut.viewDidAppear(true)
+        XCTAssertTrue(configurator.interactor.isProcessViewDidLoadCalled)
+    }
+    
+    func test_TableViewSectionAndRow_WhenImageDataInNotPresent() {
+        window.addSubview(sut.view)
+        sut.viewDidAppear(true)
+        let viewModel = WALELandingViewModel(apod: WALEMockData().apod)
+        sut.displayAPOD(withViewModel: viewModel)
+        let totalSection = 1
+        let numberOfSections = sut.numberOfSections(in: sut.tableView)
+        let numberOfRows = sut.tableView(sut.tableView, numberOfRowsInSection: totalSection)
+        XCTAssertEqual(numberOfSections, totalSection)
+        XCTAssertEqual(numberOfRows, 1)
+    }
+    
+    func test_TableViewSectionAndRow_WhenImageDataPresent() {
+        window.addSubview(sut.view)
+        sut.viewDidAppear(true)
+        let mockData = WALEMockData()
+        var mutableApod = mockData.apod
+        mutableApod.imageData = mockData.imageData
+        let viewModel = WALELandingViewModel(apod: mutableApod)
+        sut.displayAPOD(withViewModel: viewModel)
+        let totalSection = 1
+        let numberOfSections = sut.numberOfSections(in: sut.tableView)
+        let numberOfRows = sut.tableView(sut.tableView, numberOfRowsInSection: totalSection)
+        XCTAssertEqual(numberOfSections, totalSection)
+        XCTAssertEqual(numberOfRows, 2)
+    }
+}
+
+//Private
+extension WALESwiftLandingControllerTest {
+    
+    func setupController() {
+        configurator = WALEConfiguratorMock()
+        sut = WALELandingViewController(withConfigurator: configurator)
+    }
 }

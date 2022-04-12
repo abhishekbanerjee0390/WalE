@@ -7,8 +7,14 @@
 
 import Foundation
 
+protocol WallEStorageManagerProtocol {
+    func setObject<Element: Encodable>(value: Element, forKey key: String) throws
+    func getObject<Element: Decodable>(forKey key: String) throws -> Element?
+//    func removeObject(forKey key: String)
+}
 
-final class WallEStorageManager {
+
+final class WallEStorageManager: WallEStorageManagerProtocol {
     
     static let shared: WallEStorageManager = WallEStorageManager()
     
@@ -28,8 +34,8 @@ final class WallEStorageManager {
         let dataValue = try JSONDecoder().decode(Element.self, from: data)
         return dataValue
     }
-    
-    func removeObject(forKey key: String) {
-        userDefault.removeObject(forKey: key)
-    }
+//
+//    func removeObject(forKey key: String) {
+//        userDefault.removeObject(forKey: key)
+//    }
 }
