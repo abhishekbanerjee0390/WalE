@@ -108,12 +108,12 @@ class WALELandingInteractorTest: XCTestCase {
     }
 
     override func tearDownWithError() throws {
+        try super.tearDownWithError()
         presenter = nil
         storage = nil
         api = nil
         monitor = nil
         sut = nil
-        try super.tearDownWithError()
     }
     
     func testPresentAPOD_WhenInternetIsConnected_LocalDataNotAvailableForToday() {

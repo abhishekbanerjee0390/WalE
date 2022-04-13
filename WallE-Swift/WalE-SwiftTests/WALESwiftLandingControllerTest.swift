@@ -42,10 +42,10 @@ class WALESwiftLandingControllerTest: XCTestCase {
     }
 
     override func tearDownWithError() throws {
+        try super.tearDownWithError()
         window = nil
         sut = nil
         configurator = nil
-        try super.tearDownWithError()
     }
     
     

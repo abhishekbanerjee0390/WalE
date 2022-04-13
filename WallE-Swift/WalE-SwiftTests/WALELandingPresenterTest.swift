@@ -16,7 +16,6 @@ class WALELandingPresenterTest: XCTestCase {
     class WALELandingControllerMock: WALELandingDisplayable {
         
         var isDisplayAPODCalled: Bool = false
-//        var isDisplayImageCalled: Bool = false
         var isDisplayLoaderCalled: Bool = false
         var isHideLoaderCalled: Bool = false
         var isDisplayAlertCalled: Bool = false
@@ -26,11 +25,7 @@ class WALELandingPresenterTest: XCTestCase {
             viewModel = model
             isDisplayAPODCalled = true
         }
-        
-//        func displayImage(withImageData: Data) {
-//            isDisplayImageCalled = true
-//        }
-        
+                
         func displayLoader() {
             isDisplayLoaderCalled = true
         }
@@ -72,14 +67,7 @@ class WALELandingPresenterTest: XCTestCase {
         //this only to test apod model data is not being modified before creating view model
         XCTAssertEqual(apod, model.apod)
     }
-    
-//    func test_presentImage() {
-//
-//        let data = Data()
-//        sut.presentImage(withImageData: data)
-//        XCTAssertTrue(controller.isDisplayImageCalled)
-//    }
-    
+        
     func test_presentSpinner() {
         
         sut.presentSpinner()

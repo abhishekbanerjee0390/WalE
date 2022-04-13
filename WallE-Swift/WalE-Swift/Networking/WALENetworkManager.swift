@@ -19,13 +19,12 @@ typealias WALENetworkResponse<T> = (Result<T, WALEError>) -> Void
 typealias WALEImageDownloadResponse = (Result<Data, WALEError>) -> Void
 
 protocol WALEURLSessionProtocol {
-    func task(withRequest request: URLRequest, completionHandler: @escaping ((Data?, URLResponse?, Error?) -> Void)) -> URLSessionDataTask
+    func task(withRequest request: URLRequest, completionHandler: @escaping ((Data?, URLResponse?, Error?) -> Void)) -> WALEURLSessionDataTaskProtocol
 }
 
 protocol WALEURLSessionDataTaskProtocol {
     func resume()
 }
-
 
 struct WALENetworkManager {
     let session: WALEURLSessionProtocol

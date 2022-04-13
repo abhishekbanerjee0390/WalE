@@ -29,11 +29,11 @@
 		533230E027FC896A009F0A91 /* WalE_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533230DF27FC896A009F0A91 /* WalE_SwiftTests.swift */; };
 		533230FC27FC9D52009F0A91 /* WALENetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533230FB27FC9D52009F0A91 /* WALENetworkManager.swift */; };
 		533230FF27FC9F61009F0A91 /* WALEConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533230FE27FC9F61009F0A91 /* WALEConstant.swift */; };
-		534966E0280089DF0054B0FE /* String+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534966DF280089DF0054B0FE /* String+Helper.swift */; };
 		534F7B4B2805CE7C0086A9BA /* WALESwiftLandingControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5372E6FF280455A200E55EB3 /* WALESwiftLandingControllerTest.swift */; };
 		5372E7022804740100E55EB3 /* WALELandingInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5372E7012804740100E55EB3 /* WALELandingInteractorTest.swift */; };
 		5372E7042804781300E55EB3 /* WALELandingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5372E7032804781300E55EB3 /* WALELandingConfigurator.swift */; };
 		537891AF28055B08003518FE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 537891AE28055B08003518FE /* placeholder.png */; };
+		537D93242806BC730094C120 /* WALENetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537D93232806BC730094C120 /* WALENetworkManagerTests.swift */; };
 		538121D62803F0750046483C /* WALELandingImageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538121D42803F0750046483C /* WALELandingImageTableCell.swift */; };
 		538121D72803F0750046483C /* WALELandingImageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 538121D52803F0750046483C /* WALELandingImageTableCell.xib */; };
 		538121D92803F5AC0046483C /* NSObject+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538121D82803F5AC0046483C /* NSObject+Helper.swift */; };
@@ -86,11 +86,11 @@
 		533230E527FC896A009F0A91 /* WalE-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WalE-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		533230FB27FC9D52009F0A91 /* WALENetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALENetworkManager.swift; sourceTree = "<group>"; };
 		533230FE27FC9F61009F0A91 /* WALEConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALEConstant.swift; sourceTree = "<group>"; };
-		534966DF280089DF0054B0FE /* String+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helper.swift"; sourceTree = "<group>"; };
 		5372E6FF280455A200E55EB3 /* WALESwiftLandingControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALESwiftLandingControllerTest.swift; sourceTree = "<group>"; };
 		5372E7012804740100E55EB3 /* WALELandingInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALELandingInteractorTest.swift; sourceTree = "<group>"; };
 		5372E7032804781300E55EB3 /* WALELandingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALELandingConfigurator.swift; sourceTree = "<group>"; };
 		537891AE28055B08003518FE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		537D93232806BC730094C120 /* WALENetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALENetworkManagerTests.swift; sourceTree = "<group>"; };
 		538121D42803F0750046483C /* WALELandingImageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALELandingImageTableCell.swift; sourceTree = "<group>"; };
 		538121D52803F0750046483C /* WALELandingImageTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WALELandingImageTableCell.xib; sourceTree = "<group>"; };
 		538121D82803F5AC0046483C /* NSObject+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Helper.swift"; sourceTree = "<group>"; };
@@ -141,7 +141,6 @@
 				5326BF6D27FDB396004D2190 /* URLResponse+Helper.swift */,
 				5311B9DF27FDE6A600C44C73 /* URLSession+WALEURLSessionProtocol.swift */,
 				5311B9E127FDE6C400C44C73 /* Date+Helper.swift */,
-				534966DF280089DF0054B0FE /* String+Helper.swift */,
 				538121D82803F5AC0046483C /* NSObject+Helper.swift */,
 			);
 			path = Extensions;
@@ -223,6 +222,7 @@
 				5372E6FF280455A200E55EB3 /* WALESwiftLandingControllerTest.swift */,
 				5372E7012804740100E55EB3 /* WALELandingInteractorTest.swift */,
 				539B999D2805BB7E00B63F6D /* WALELandingPresenterTest.swift */,
+				537D93232806BC730094C120 /* WALENetworkManagerTests.swift */,
 				539B999F2805C32600B63F6D /* WALEMockData.swift */,
 				537891AE28055B08003518FE /* placeholder.png */,
 			);
@@ -432,7 +432,6 @@
 				538121D62803F0750046483C /* WALELandingImageTableCell.swift in Sources */,
 				5326BF6E27FDB396004D2190 /* URLResponse+Helper.swift in Sources */,
 				5326BF7627FDD6B7004D2190 /* WALELandingAPIWorker.swift in Sources */,
-				534966E0280089DF0054B0FE /* String+Helper.swift in Sources */,
 				5326BF7A27FDD9C3004D2190 /* APOD.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				534F7B4B2805CE7C0086A9BA /* WALESwiftLandingControllerTest.swift in Sources */,
+				537D93242806BC730094C120 /* WALENetworkManagerTests.swift in Sources */,
 				539B999E2805BB7E00B63F6D /* WALELandingPresenterTest.swift in Sources */,
 				5372E7022804740100E55EB3 /* WALELandingInteractorTest.swift in Sources */,
 				539B99A02805C32600B63F6D /* WALEMockData.swift in Sources */,
