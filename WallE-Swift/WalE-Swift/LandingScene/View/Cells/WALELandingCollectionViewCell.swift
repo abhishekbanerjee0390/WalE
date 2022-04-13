@@ -8,10 +8,13 @@
 import UIKit
 
 class WALELandingCollectionViewCell: UICollectionViewCell {
+    @IBOutlet private var imageViewAPOD: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
+    func setImage(withImageData imageData: Data) {
+        self.imageViewAPOD.image = UIImage(data: imageData)
+    }
 }

@@ -73,6 +73,9 @@ final class WALELandingViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 1, let imageData = viewModel?.apod.imageData {
+            return UIImage(data: imageData)?.size.height ?? 0
+        }
         return UITableView.automaticDimension
     }
 }
@@ -121,7 +124,6 @@ private extension WALELandingViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.alwaysBounceVertical = false
         tableView.alwaysBounceHorizontal = false
-        tableView.bounces = false
     }
     
     func reloadTable() {

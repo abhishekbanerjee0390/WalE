@@ -29,6 +29,8 @@
 		533230E027FC896A009F0A91 /* WalE_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533230DF27FC896A009F0A91 /* WalE_SwiftTests.swift */; };
 		533230FC27FC9D52009F0A91 /* WALENetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533230FB27FC9D52009F0A91 /* WALENetworkManager.swift */; };
 		533230FF27FC9F61009F0A91 /* WALEConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533230FE27FC9F61009F0A91 /* WALEConstant.swift */; };
+		534EEDE1280723D70030C119 /* WALELandingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534EEDDF280723D70030C119 /* WALELandingCollectionViewCell.swift */; };
+		534EEDE2280723D70030C119 /* WALELandingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 534EEDE0280723D70030C119 /* WALELandingCollectionViewCell.xib */; };
 		534F7B4B2805CE7C0086A9BA /* WALESwiftLandingControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5372E6FF280455A200E55EB3 /* WALESwiftLandingControllerTest.swift */; };
 		5372E7022804740100E55EB3 /* WALELandingInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5372E7012804740100E55EB3 /* WALELandingInteractorTest.swift */; };
 		5372E7042804781300E55EB3 /* WALELandingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5372E7032804781300E55EB3 /* WALELandingConfigurator.swift */; };
@@ -86,6 +88,9 @@
 		533230E527FC896A009F0A91 /* WalE-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "WalE-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		533230FB27FC9D52009F0A91 /* WALENetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALENetworkManager.swift; sourceTree = "<group>"; };
 		533230FE27FC9F61009F0A91 /* WALEConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALEConstant.swift; sourceTree = "<group>"; };
+		534EEDDD28071BB10030C119 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		534EEDDF280723D70030C119 /* WALELandingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALELandingCollectionViewCell.swift; sourceTree = "<group>"; };
+		534EEDE0280723D70030C119 /* WALELandingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WALELandingCollectionViewCell.xib; sourceTree = "<group>"; };
 		5372E6FF280455A200E55EB3 /* WALESwiftLandingControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALESwiftLandingControllerTest.swift; sourceTree = "<group>"; };
 		5372E7012804740100E55EB3 /* WALELandingInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALELandingInteractorTest.swift; sourceTree = "<group>"; };
 		5372E7032804781300E55EB3 /* WALELandingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WALELandingConfigurator.swift; sourceTree = "<group>"; };
@@ -131,6 +136,8 @@
 				5326BF6927FD8209004D2190 /* WALELandingTableCell.xib */,
 				538121D42803F0750046483C /* WALELandingImageTableCell.swift */,
 				538121D52803F0750046483C /* WALELandingImageTableCell.xib */,
+				534EEDDF280723D70030C119 /* WALELandingCollectionViewCell.swift */,
+				534EEDE0280723D70030C119 /* WALELandingCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -211,6 +218,7 @@
 				533230D127FC896A009F0A91 /* Assets.xcassets */,
 				533230D327FC896A009F0A91 /* LaunchScreen.storyboard */,
 				533230D627FC896A009F0A91 /* Info.plist */,
+				534EEDDD28071BB10030C119 /* Readme.md */,
 			);
 			path = "WalE-Swift";
 			sourceTree = "<group>";
@@ -387,6 +395,7 @@
 				533230D527FC896A009F0A91 /* LaunchScreen.storyboard in Resources */,
 				533230D227FC896A009F0A91 /* Assets.xcassets in Resources */,
 				538121D72803F0750046483C /* WALELandingImageTableCell.xib in Resources */,
+				534EEDE2280723D70030C119 /* WALELandingCollectionViewCell.xib in Resources */,
 				533230D027FC8965009F0A91 /* Main.storyboard in Resources */,
 				5326BF6B27FD8209004D2190 /* WALELandingTableCell.xib in Resources */,
 			);
@@ -417,6 +426,7 @@
 				533230FC27FC9D52009F0A91 /* WALENetworkManager.swift in Sources */,
 				5326BF6627FD782D004D2190 /* WALELandingViewController.swift in Sources */,
 				5326BF7127FDC65F004D2190 /* WALELandingInteractor.swift in Sources */,
+				534EEDE1280723D70030C119 /* WALELandingCollectionViewCell.swift in Sources */,
 				5326BF6A27FD8209004D2190 /* WALELandingTableCell.swift in Sources */,
 				5326BF7327FDC87A004D2190 /* WALELandingPresenter.swift in Sources */,
 				5326BF6227FD6AC0004D2190 /* WALENetworkMonitor.swift in Sources */,
