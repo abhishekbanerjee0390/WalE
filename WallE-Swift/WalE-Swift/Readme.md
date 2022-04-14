@@ -19,3 +19,5 @@ Improvement Areas
             return UIImage(data: imageData)?.size.height ?? 0
         }
 2. For offline support I am using User Defaults because of the time constraint. Core data was a better choice for that.
+
+3. More test coverage
